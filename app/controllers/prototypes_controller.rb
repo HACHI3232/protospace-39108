@@ -1,7 +1,8 @@
 class PrototypesController < ApplicationController
   def index
-    @prototypes = Prototype.all
+    @prototypes = Prototype.includes(:image_attachment).select(:title, :catch_copy, :concept, :image)
   end
+
 
   def new
     @prototype = Prototype.new
