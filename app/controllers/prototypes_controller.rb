@@ -33,7 +33,13 @@ class PrototypesController < ApplicationController
     @prototype = Prototype.find(params[:id])
   end
 
-  
+  def destroy
+    prototypes = Prototype.find(params[:id])
+    if prototypes.destroy
+      redirect_to root_path
+    end
+  end
+
 
   private
 
@@ -41,4 +47,6 @@ class PrototypesController < ApplicationController
     params.require(:prototype).permit(:title, :catch_copy, :concept, :image).merge(user_id: current_user.id)
   end 
   
+
+
 end
