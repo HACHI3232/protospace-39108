@@ -8,6 +8,7 @@ class PrototypesController < ApplicationController
   end
 
   def create
+    binding.pry
     @prototype = Prototype.new(prototype_params)
     if @prototype.save
       redirect_to root_path
@@ -18,6 +19,8 @@ class PrototypesController < ApplicationController
 
   def show
     @prototype = Prototype.find(params[:id])
+    @comments = @prototype.comments.includes(:user)
+
   end
 
   def update
