@@ -5,7 +5,7 @@
         <%= @prototype[:title]%>
       </p>
       <% if user_signed_in? && current_user.id == @prototype.user_id %>
-      <%= link_to "by#{current_user[:name]}", root_path, class: :prototype__user %>
+      <%= link_to "by#{@prototype.user[:name]}", "/users/#{@prototype.user.id}", class: :prototype__user %>
       <%# プロトタイプの投稿者とログインしているユーザーが同じであれば以下を表示する %>
         <div class="prototype__manage">
           <%= link_to "編集する",  edit_prototype_path, class: :prototype__btn %>
@@ -47,7 +47,7 @@
         <ul class="comments_lists">
           <% @comments.each do |comment| %> 
           <li class="comments_list">
-            <%= link_to comment.user.name, root_path, class: :comment_user %>
+            <%= link_to comment.user.name, "/users/#{@prototype.user.id}", class: :comment_user %>
             <%= comment.content %>
           </li>
           <% end %> 
