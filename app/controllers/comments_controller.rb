@@ -1,5 +1,6 @@
 class CommentsController < ApplicationController
   def create
+    binding.pry
     if Comment.create(comment_params)
       redirect_to prototype_path(params[:prototype_id])
     else
