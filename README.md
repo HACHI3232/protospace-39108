@@ -11,6 +11,10 @@
 | occupation         | text   | NOT NULL         |
 | position           | text   | NOT NULL         |
 
+### Association
+
+- has_many :prototypes
+
 ##prototypes テーブル
 
 | Column     | Type       | Options                     |
@@ -19,6 +23,10 @@
 | catch_copy | text       | NOT NULL                    |
 | concept    | text       | NOT NULL                    |
 | user       | references | NOT NULL, foreign_key: true |
+
+### Association
+
+- belongs_to :user
 
 ##comments テーブル
 
