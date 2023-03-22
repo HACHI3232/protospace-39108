@@ -10,4 +10,5 @@ class User < ApplicationRecord
         validates :name, presence: true
 
         has_many :prototypes
-end
+        has_many :comments
+      end

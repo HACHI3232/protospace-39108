@@ -35,3 +35,6 @@
 | content   | text       | NOT NULL                    |
 | prototype | references | NOT NULL, foreign_key: true |
 | user      | references | NOT NULL, foreign_key: true |
+
+- belongs_to :prototype
+- belongs_to :user

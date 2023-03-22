@@ -1,4 +1,6 @@
 class PrototypesController < ApplicationController
+  before_action :authenticate_user!, except: [:show, :index]
+
   def index
     @prototypes = Prototype.all
   end
@@ -18,6 +20,8 @@ class PrototypesController < ApplicationController
 
   def show
     @prototype = Prototype.find(params[:id])
+    @comments = @prototype.comments.includes(:user)
+
   end
 
   def update
